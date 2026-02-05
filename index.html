@@ -532,9 +532,14 @@ background-position: top left;
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-backdrop" data-close></div>
     <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="餐點圖片放大檢視">
-      <button class="lightbox-close" type="button" data-close aria-label="關閉">✕</button>
-      <img id="lightboxImg" alt="" />
-    </div>
+  <button class="lightbox-close" type="button" data-close aria-label="關閉">✕</button>
+
+  <!-- 新增：上一張 / 下一張 -->
+  <button class="lightbox-nav prev" type="button" data-prev aria-label="上一張">‹</button>
+  <button class="lightbox-nav next" type="button" data-next aria-label="下一張">›</button>
+
+  <img id="lightboxImg" alt="" />
+</div>
   </div>
 
   <style>
@@ -577,39 +582,76 @@ background-position: top left;
     document.getElementById("y").textContent = new Date().getFullYear();
 
     // Lightbox
-    (function(){
-      const lb = document.getElementById('lightbox');
-      const lbImg = document.getElementById('lightboxImg');
+    <script>
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const menuLink = document.getElementById('menuLink');
 
-      function openLightbox(src, alt){
-        lbImg.src = src;
-        lbImg.alt = alt || '';
-        lb.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeLightbox(){
-        lb.setAttribute('aria-hidden','true');
-        lbImg.src = '';
-        document.body.style.overflow = '';
-      }
+  const MENU_IMAGES = [
+    'assets/menu-1.webp',
+    'assets/menu-2.webp'
+  ];
 
-      // ✅ 事件綁定：現在放在最底下，確保 DOM 都已經存在
-      document.querySelectorAll('.food-card').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          openLightbox(btn.dataset.full, btn.querySelector('img')?.alt);
-        });
-      });
+  let gallery = null;
+  let index = 0;
 
-      lb.addEventListener('click', (e)=>{
-        if(e.target.matches('[data-close]')) closeLightbox();
-      });
+  function openLightbox(src, alt){
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
 
-      window.addEventListener('keydown', (e)=>{
-        if(e.key === 'Escape' && lb.getAttribute('aria-hidden') === 'false') closeLightbox();
-      });
-    })();
+  function closeLightbox(){
+    lb.setAttribute('aria-hidden','true');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    gallery = null;
+    index = 0;
+  }
+
+  function showAt(i){
+    if(!gallery || gallery.length === 0) return;
+    index = (i + gallery.length) % gallery.length;
+    openLightbox(gallery[index], `最新菜單（${index + 1}）`);
+  }
+
+  function next(){ if(gallery) showAt(index + 1); }
+  function prev(){ if(gallery) showAt(index - 1); }
+
+  if(menuLink){
+    menuLink.addEventListener('click', (e)=>{
+      e.preventDefault();
+      gallery = MENU_IMAGES;
+      showAt(0);
+    });
+  }
+
+  document.querySelectorAll('.food-card').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      gallery = null;
+      openLightbox(btn.dataset.full, btn.querySelector('img')?.alt);
+    });
+  });
+
+  lb.addEventListener('click', (e)=>{
+    if(e.target.matches('[data-close]')) closeLightbox();
+    if(e.target.matches('[data-next]')) next();
+    if(e.target.matches('[data-prev]')) prev();
+  });
+
+  window.addEventListener('keydown', (e)=>{
+    if(lb.getAttribute('aria-hidden') !== 'false') return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'ArrowLeft') prev();
+  });
+})();
+</script>
   </script>
 </body>
 </html>
+
 
 
