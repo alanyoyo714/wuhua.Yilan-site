@@ -649,8 +649,114 @@ background-position: top left;
   });
 })();
 </script>
+  <!-- 菜單 Lightbox（兩張，可左右切換） -->
+<div class="lightbox" id="menuBox" aria-hidden="true">
+  <div class="lightbox-backdrop" data-close></div>
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="最新菜單">
+    <button class="lightbox-close" type="button" data-close aria-label="關閉">✕</button>
+
+    <!-- 左右切換 -->
+    <button class="lb-nav lb-prev" type="button" data-prev aria-label="上一張">‹</button>
+    <button class="lb-nav lb-next" type="button" data-next aria-label="下一張">›</button>
+
+    <img id="menuImg" alt="最新菜單" />
+    <div class="lb-count" id="menuCount"></div>
+  </div>
+</div>
+
+<style>
+  /* 讓左右切換按鈕好按 */
+  .lb-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px; height:44px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.20);
+    background: rgba(0,0,0,.35);
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lb-prev{ left:10px; }
+  .lb-next{ right:10px; }
+  .lb-count{
+    position:absolute;
+    left:14px; bottom:12px;
+    color: rgba(255,255,255,.85);
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.16);
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+  @media (max-width: 768px){
+    .lb-nav{ width:52px; height:52px; font-size:30px; }
+    .lb-prev{ left:12px; }
+    .lb-next{ right:12px; }
+  }
+</style>
+
+<script>
+(function(){
+  // ✅ 把下面兩個檔名改成你 assets 裡的實際檔名
+  const MENU_IMAGES = [
+    "assets/menu1.webp",
+    "assets/menu2.webp"
+  ];
+
+  const menuLink = document.getElementById("menuLink");
+  const box = document.getElementById("menuBox");
+  const img = document.getElementById("menuImg");
+  const count = document.getElementById("menuCount");
+
+  let index = 0;
+
+  function show(i){
+    if(!MENU_IMAGES.length) return;
+    index = (i + MENU_IMAGES.length) % MENU_IMAGES.length;
+    img.src = MENU_IMAGES[index];
+    count.textContent = `第 ${index+1} / ${MENU_IMAGES.length} 張`;
+  }
+
+  function open(){
+    box.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+    show(0);
+  }
+
+  function close(){
+    box.setAttribute("aria-hidden","true");
+    img.src = "";
+    document.body.style.overflow = "";
+  }
+
+  if(menuLink){
+    menuLink.addEventListener("click", (e)=>{
+      e.preventDefault();
+      open();
+    });
+  }
+
+  box.addEventListener("click", (e)=>{
+    if(e.target.matches("[data-close]")) close();
+    if(e.target.matches("[data-next]")) show(index + 1);
+    if(e.target.matches("[data-prev]")) show(index - 1);
+  });
+
+  window.addEventListener("keydown", (e)=>{
+    if(box.getAttribute("aria-hidden") !== "false") return;
+    if(e.key === "Escape") close();
+    if(e.key === "ArrowRight") show(index + 1);
+    if(e.key === "ArrowLeft") show(index - 1);
+  });
+})();
+</script>
 </body>
 </html>
+
 
 
 
