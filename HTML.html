@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>五花馬水餃館｜宜蘭宜興店・羅東純精店</title>
+  <meta name="description" content="五花馬水餃館提供舒適寬敞的麵食用餐空間。分店：宜蘭宜興店、羅東純精店。提供內用、外帶與外送平台導流。" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="五花馬水餃館｜宜蘭宜興店・羅東純精店" />
+  <meta property="og:description" content="舒適寬敞的麵食館，歡迎內用、外帶；外送平台快速下單。" />
+  <meta property="og:type" content="website" />
+
+  <style>
+   :root{
+  /* 老梣木主題色系 */
+  --bg:#2b2622;              /* 木牆陰影底色 */
+  --card: rgba(28,24,21,.90);/* 卡片深暖灰 */
+  --text:#f3f0ea;            /* 溫暖白 */
+  --muted:#c9c2b8;           /* 次要文字灰 */
+  --line:#3a332d;            /* 分隔線 */
+  
+  /* 品牌暖金 */
+  --brand:#d6b36a;
+  --brand2:#b8893f;
+
+  --shadow: 0 14px 40px rgba(0,0,0,.45);
+  --radius:18px;
+  --max:1120px;
+}
+    *{box-sizing:border-box}
+    body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+  background-color:#2b1f16;
+  background-color:#2b1f16;
+background-image: url("assets/wood-tile.webp");
+background-repeat: repeat;
+background-size: 650px auto;
+background-position: top left;
+  background-repeat: repeat;
+  background-size: 520px auto;
+  background-position: top left;
+
+  color:var(--text);
+  line-height:1.6;
+}
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(20,16,12,.88);
+      border-bottom: 1px solid rgba(34,48,65,.6);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(244,193,93,.16);
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+      color:var(--muted); font-weight:600; font-size:14px;
+    }
+    .nav-links a{padding:8px 10px; border-radius:999px}
+    .nav-links a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-weight:700;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(244,193,93,.95), rgba(255,122,89,.95));
+      color:#1a1206;
+      border: none;
+    }
+    .btn.primary:hover{filter: brightness(1.02)}
+    .hero{ padding: 42px 0 24px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+     .panel{
+  box-shadow: 0 16px 40px rgba(0,0,0,.55);
+  background: rgba(28,24,21,.92);
+  backdrop-filter: blur(2px);
+}
+      border: 1px solid rgba(34,48,65,.75);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.15;
+      letter-spacing:.2px;
+      color:#ffffff;
+
+    }
+    .sub{
+      color:var(--muted);
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px; margin: 16px 0 0;
+    }
+    .chip{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+    .stack{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px;}
+    .section{ padding: 18px 0; }
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+    .card{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(28,24,21,.92);
+      border: 1px solid rgba(34,48,65,.75);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .muted{color:var(--muted)}
+    .hr{height:1px; background: rgba(34,48,65,.85); margin: 14px 0;}
+    .kvs{display:grid; grid-template-columns: 90px 1fr; gap:10px; font-size:14px}
+    .kvs div{padding: 4px 0}
+    .map{
+      width:100%;
+      height: 280px;
+      border:0;
+      border-radius: 14px;
+      overflow:hidden;
+      background:#0b0f14;
+    }
+    .notice{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:14px 16px;
+  border-radius:16px;
+
+  background: linear-gradient(180deg,#1f1f1f,#151515);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,.45);
+}
+    .badge{
+      font-weight:900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(244,193,93,.18);
+      border:1px solid rgba(244,193,93,.28);
+      color: var(--text);
+      white-space:nowrap;
+      font-size: 12px;
+    }
+    footer{
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .small{font-size:13px}
+    .rightPanelTitle{font-weight:900; margin:0 0 10px}
+
+    /* Food cards */
+    .food-card{
+      text-align:left;
+      padding:0;
+      border: 1px solid rgba(34,48,65,.75);
+      background: var(--card);
+      border-radius: 18px;
+      overflow:hidden;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+    }
+    .food-card:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.18); }
+    .food-card img{ width:100%; height: 240px; object-fit: cover; display:block; }
+    .food-meta{ padding: 12px 14px; }
+    .food-meta h3{ margin:0; }
+    /* 餐點卡片文字顏色修正 */
+.food-card h3{
+  color:#ffffff;
+  font-weight:800;
+}
+
+
+.food-card .muted{
+  color:#d8d2c8;
+}
+
+/* 外送平台品牌色按鈕 */
+.btn-ubereats{
+  background:#06C167;   /* Uber Eats 綠 */
+  color:#ffffff;
+  border:none;
+}
+
+.btn-ubereats:hover{
+  filter:brightness(1.1);
+}
+
+.btn-foodpanda{
+  background:#E21B70;   /* foodpanda 粉 */
+  color:#ffffff;
+  border:none;
+}
+
+.btn-foodpanda:hover{
+  filter:brightness(1.1);
+}
+
+/* 按鈕立體感 */
+.btn{
+  box-shadow: 0 6px 14px rgba(0,0,0,.35);
+}
+
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.45);
+}
+
+/* 手機版外送按鈕滿版 */
+@media (max-width:768px){
+  #delivery .stack{
+    flex-direction: column;
+  }
+
+  #delivery .btn{
+    width:100%;
+    font-size:18px;
+    padding:16px 18px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>五花馬水餃館</span>
+      </div>
+      <nav class="nav-links" aria-label="主選單">
+        <a href="#about">關於我們</a>
+        <a href="#featured">人氣精選</a>
+        <a href="#stores">分店資訊</a>
+        <a href="#delivery">外送下單</a>
+        <a href="#notice">最新公告</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="panel">
+          <h1>舒適寬敞的麵食館<br/>把每一口都做到剛剛好</h1>
+          <p class="sub">內用・外帶・外送平台導流｜宜蘭宜興店・羅東純精店</p>
+
+          <div class="stack">
+            <a class="btn primary" href="#stores">查看分店資訊</a>
+            <a class="btn" href="#delivery">立即外送下單</a>
+          </div>
+
+          <div class="chips" aria-label="特色">
+            <span class="chip">招牌水餃</span>
+            <span class="chip">麵食湯品</span>
+            <span class="chip">煎餅捲餅</span>
+            <span class="chip">家庭聚餐首選</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p class="rightPanelTitle">今日想吃什麼？</p>
+          <div class="grid3" style="grid-template-columns:1fr; gap:10px">
+            <div class="card">
+              <h3>人氣精選</h3>
+              <div class="muted small">高麗菜水餃／蔥油餅／酸辣湯／炒飯（可依實際菜單再調整）</div>
+            </div>
+            <div class="card">
+              <h3>用餐體驗</h3>
+              <div class="muted small">明亮舒適、動線寬敞，適合家庭聚餐與朋友小聚。</div>
+            </div>
+            <div class="card">
+              <h3>快速導覽</h3>
+              <div class="muted small">下面分店區可直接點「撥打電話」與「開啟地圖」。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>關於我們</h2>
+      <div class="card">
+        <div class="muted">
+          我們希望讓宜蘭鄉親在最舒服、最寬敞的空間裡，享用豐富的餐點、免費的小米粥。
+          無論是家庭聚餐、上班午餐、或外帶回家，都能簡單、安心、好吃。
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 人氣精選（已修正：全部 src 正確、檔名一致、可點擊放大） -->
+<section class="section" id="featured">
+  <h2>人氣精選</h2>
+
+  <div class="grid3">
+
+    <!-- 叉燒炒飯 -->
+    <button class="food-card"
+      data-full="assets/charsiu-fried-rice-zoom.webp"
+      type="button">
+      <img src="assets/charsiu-fried-rice-hero.webp" alt="叉燒炒飯">
+      <div class="food-meta">
+        <h3>叉燒炒飯</h3>
+        <div class="muted small">點擊看大圖</div>
+      </div>
+    </button>
+
+    <!-- 揚州炒飯 -->
+    <button class="food-card"
+      data-full="assets/yangzhou-fried-rice-zoom.webp"
+      type="button">
+      <img src="assets/yangzhou-fried-rice-hero.webp" alt="揚州炒飯">
+      <div class="food-meta">
+        <h3>揚州炒飯</h3>
+        <div class="muted small">點擊看大圖</div>
+      </div>
+    </button>
+
+    <!-- 溫州大雲吞湯 -->
+    <button class="food-card"
+      data-full="assets/wonton-soup-zoom.webp"
+      type="button">
+      <img src="assets/wonton-soup-hero.webp" alt="溫州大雲吞湯">
+      <div class="food-meta">
+        <h3>溫州大雲吞湯</h3>
+        <div class="muted small">點擊看大圖</div>
+      </div>
+    </button>
+
+    <!-- 酸辣湯 -->
+    <button class="food-card"
+      data-full="assets/hot-sour-soup-zoom.webp"
+      type="button">
+      <img src="assets/hot-sour-soup-hero.webp" alt="酸辣湯">
+      <div class="food-meta">
+        <h3>酸辣湯</h3>
+        <div class="muted small">點擊看大圖</div>
+      </div>
+    </button>
+
+    <!-- 四神豬肚湯 -->
+    <button class="food-card"
+      data-full="assets/pork-belly-soup-zoom.webp"
+      type="button">
+      <img src="assets/pork-belly-soup-hero.webp" alt="四神豬肚湯">
+      <div class="food-meta">
+        <h3>四神豬肚湯</h3>
+        <div class="muted small">點擊看大圖</div>
+      </div>
+    </button>
+
+  </div>
+</section>
+
+
+
+    <section class="section" id="stores">
+      <h2>分店資訊</h2>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>宜蘭宜興店</h3>
+          <div class="kvs">
+            <div class="muted">地址</div><div>宜蘭縣宜蘭市宜興路一段25號</div>
+            <div class="muted">電話</div><div><a class="btn" style="padding:8px 10px" href="tel:039366670">撥打 03-9366670</a></div>
+            <div class="muted">營業</div><div>11:00–14:00／17:00–20:30</div>
+          </div>
+          <div class="hr"></div>
+          <div class="stack">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%AE%9C%E8%98%AD%E5%B8%82%E5%AE%9C%E8%88%88%E8%B7%AF%E4%B8%80%E6%AE%B525%E8%99%9F">開啟地圖</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/100094589220652">看粉專</a>
+          </div>
+          <div style="margin-top:12px">
+            <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%AE%9C%E8%98%AD%E5%B8%82%E5%AE%9C%E8%88%88%E8%B7%AF%E4%B8%80%E6%AE%B525%E8%99%9F&output=embed"></iframe>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>羅東純精店</h3>
+          <div class="kvs">
+            <div class="muted">地址</div><div>宜蘭縣羅東鎮純精路二段80號</div>
+            <div class="muted">電話</div>
+<div>
+  <a class="btn" style="padding:8px 10px" href="tel:039551050">撥打 03-9551050</a>
+</div>
+            <div class="muted">營業</div><div>11:00–14:00／17:00–20:30</div>
+          </div>
+          <div class="hr"></div>
+          <div class="stack">
+            <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E7%BE%85%E6%9D%B1%E9%8E%AE%E7%B4%94%E7%B2%BE%E8%B7%AF%E4%BA%8C%E6%AE%B580%E8%99%9F">開啟地圖</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/100094589220652">看粉專</a>
+          </div>
+          <div style="margin-top:12px">
+            <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=%E5%AE%9C%E8%98%AD%E7%B8%A3%E7%BE%85%E6%9D%B1%E9%8E%AE%E7%B4%94%E7%B2%BE%E8%B7%AF%E4%BA%8C%E6%AE%B580%E8%99%9F&output=embed"></iframe>
+          </div>
+        </div>
+
+        <div class="card">
+  <h3>來店小提醒</h3>
+  <div class="muted small">
+    📌 尾牙聚餐公休：2/12（星期四）公休，2/13（星期五）正常營業。<br/><br/>
+
+    📌 年節放假：2/16（除夕）～2/18（初二）公休，2/19（初三）正常營業。<br/><br/>
+
+    - 如遇其他節慶公休或活動，請以粉專公告為準。<br/>
+    - 想加速出餐：可先電話預訂外帶。<br/>
+    - 需要團體訂單：建議提前一天聯繫。
+  </div>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="delivery">
+      <h2>外送下單</h2>
+      <div class="card">
+        <div class="muted">你可以直接從平台下單（以下以宜蘭宜興店公開頁面為例）。</div>
+        <div class="stack" style="margin-top:12px">
+          <a class="btn btn-ubereats" target="_blank" rel="noopener"
+   href="https://www.ubereats.com/...">
+   🍔 Uber Eats
+</a>
+
+<a class="btn btn-foodpanda" target="_blank" rel="noopener"
+   href="https://www.foodpanda.com.tw/...">
+   🐼 foodpanda
+</a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="notice">
+      <h2>最新公告</h2>
+      <div class="notice">
+        <span class="badge">公告</span>
+        <div>
+          <div style="font-weight:800; margin-bottom:4px">營業資訊與公休調整</div>
+          <div class="muted small">
+            📌 尾牙聚餐公休：2/12（星期四）公休，2/13（星期五）正常營業。
+
+📌 年節放假：2/16（除夕）～2/18（初二）公休，2/19（初三）正常營業。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>聯絡我們</h2>
+      <div class="card">
+   
+        <div class="stack" style="margin-top:12px">
+  <a class="btn" href="tel:039366670">撥打（宜蘭宜興店）03-9366670</a>
+
+  <a class="btn" href="tel:039551050">撥打（羅東純精店）03-9551050</a>
+
+  <a class="btn" target="_blank" rel="noopener"
+     href="https://www.facebook.com/100094589220652">
+     Facebook 粉專 / Messenger
+  </a>
+</div>
+        <div class="hr"></div>
+        <div class="muted small">
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap" style="padding:0">
+        <div>© <span id="y"></span> 五花馬水餃館｜宜蘭宜興店・羅東純精店</div>
+        <div class="small muted">本網站為官方資訊頁（內容可依實際營運/菜單調整）。</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="餐點圖片放大檢視">
+      <button class="lightbox-close" type="button" data-close aria-label="關閉">✕</button>
+      <img id="lightboxImg" alt="" />
+    </div>
+  </div>
+
+  <style>
+    .lightbox{ position: fixed; inset:0; display:none; z-index:9999; }
+    .lightbox[aria-hidden="false"]{ display:block; }
+    .lightbox-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.65); backdrop-filter: blur(6px); }
+    .lightbox-panel{
+      position: relative;
+      max-width: min(980px, calc(100vw - 28px));
+      max-height: min(84vh, 780px);
+      margin: 7vh auto 0;
+      background: rgba(15,22,33,.92);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .lightbox-panel img{
+      width:100%;
+      height:auto;
+      max-height: 84vh;
+      object-fit: contain;
+      display:block;
+      background:#0b0f14;
+    }
+    .lightbox-close{
+      position:absolute;
+      top:10px; right:10px;
+      width:38px; height:38px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
+      color:#fff;
+      font-size:18px;
+      cursor:pointer;
+    }
+  </style>
+
+  <script>
+    // 年份
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Lightbox
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+
+      function openLightbox(src, alt){
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox(){
+        lb.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      // ✅ 事件綁定：現在放在最底下，確保 DOM 都已經存在
+      document.querySelectorAll('.food-card').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          openLightbox(btn.dataset.full, btn.querySelector('img')?.alt);
+        });
+      });
+
+      lb.addEventListener('click', (e)=>{
+        if(e.target.matches('[data-close]')) closeLightbox();
+      });
+
+      window.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && lb.getAttribute('aria-hidden') === 'false') closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>
