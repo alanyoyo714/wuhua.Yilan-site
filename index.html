@@ -278,9 +278,13 @@ background-position: top left;
   <header class="nav">
     <div class="wrap nav-inner">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>五花馬水餃館</span>
-      </div>
+  <span class="dot" aria-hidden="true"></span>
+
+  <div class="brand-text">
+    <div class="brand-title">五花馬水餃館</div>
+    <div class="brand-sub">宜蘭宜興店｜羅東純精店</div>
+  </div>
+</div>
       <nav class="nav-links" aria-label="主選單">
   <a href="#about">關於我們</a>
   <a href="#" id="menuLink">最新菜單</a>
@@ -696,6 +700,34 @@ background-position: top left;
     .lb-prev{ left:12px; }
     .lb-next{ right:12px; }
   }
+/* ====== 品牌文字美化 ====== */
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.brand-title{
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:#fff;
+}
+
+.brand-sub{
+  font-size:12px;
+  margin-top:2px;
+  letter-spacing:1px;
+  color:#f0c27b;                 /* 淡金色 */
+  opacity:0.9;
+}
+
+/* 手機版微調 */
+@media (max-width:768px){
+  .brand-title{ font-size:16px; }
+  .brand-sub{ font-size:11px; }
+}
 </style>
 
 <script>
@@ -755,6 +787,7 @@ background-position: top left;
 </script>
 </body>
 </html>
+
 
 
 
