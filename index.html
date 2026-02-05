@@ -617,11 +617,16 @@ background-position: top left;
   function showAt(i){
     if(!gallery || gallery.length === 0) return;
     index = (i + gallery.length) % gallery.length;
-    openLightbox(gallery[index], `最新菜單（${index + 1}）`);
+    openLightbox(gallery[index], '最新菜單');
   }
 
-  function next(){ if(gallery) showAt(index + 1); }
-  function prev(){ if(gallery) showAt(index - 1); }
+  function next(){
+  if(gallery && gallery.length > 1) showAt(index + 1);
+}
+
+function prev(){
+  if(gallery && gallery.length > 1) showAt(index - 1);
+}
 
   if(menuLink){
     menuLink.addEventListener('click', (e)=>{
@@ -736,9 +741,9 @@ background-position: top left;
 (function(){
   // ✅ 把下面兩個檔名改成你 assets 裡的實際檔名
   const MENU_IMAGES = [
-    "assets/menu1.webp",
-    "assets/menu2.webp"
-  ];
+  'assets/menu-1.webp',
+  'assets/menu-2.webp'
+];
 
   const menuLink = document.getElementById("menuLink");
   const box = document.getElementById("menuBox");
@@ -789,6 +794,7 @@ background-position: top left;
 </script>
 </body>
 </html>
+
 
 
 
