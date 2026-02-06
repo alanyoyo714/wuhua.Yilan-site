@@ -104,14 +104,17 @@ background-position: top left;
       .hero-grid{grid-template-columns:1fr}
     }
      .panel{
-  box-shadow: 0 16px 40px rgba(0,0,0,.55);
-  background: rgba(28,24,21,.92);
-  backdrop-filter: blur(2px);
+  background: linear-gradient(180deg,
+    rgba(20, 15, 10, .72),
+    rgba(20, 15, 10, .58)
+  );
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 26px;                 /* 圓角更柔和 */
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.22),        /* 大而淡的陰影 */
+    inset 0 1px 0 rgba(255,255,255,.10);/* 一點點內高光 */
+  padding: 24px;
 }
-      border: 1px solid rgba(34,48,65,.75);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
     }
     h1{
       margin:0 0 10px;
@@ -152,12 +155,12 @@ background-position: top left;
     }
     @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
     .card{
-      border-color: rgba(255,255,255,.18);
-      background: rgba(28,24,21,.92);
-      border: 1px solid rgba(34,48,65,.75);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
+  background: rgba(20, 15, 10, .62);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 20px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  padding: 16px;
+}
     .card h3{margin:0 0 8px; font-size:16px}
     .muted{color:var(--muted)}
     .hr{height:1px; background: rgba(34,48,65,.85); margin: 14px 0;}
@@ -794,6 +797,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
