@@ -49,20 +49,25 @@ background-position: top left;
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
-    .nav{
+    /* ===== Header 底板（方案 C：明亮門面感）===== */
+.nav{
   position:sticky;
   top:0;
   z-index:50;
   backdrop-filter: blur(12px);
 
-  /* ⬇️ 比現在亮一階 */
+  /* ⬇️ 明亮木質打燈感 */
   background: linear-gradient(
     180deg,
-    rgba(60,50,38,.88),
-    rgba(40,32,24,.88)
+    rgba(110,95,70,.92),
+    rgba(80,66,48,.92)
   );
 
-  border-bottom: 1px solid rgba(214,179,106,.35);
+  border-bottom: 1px solid rgba(214,179,106,.45);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),  /* 上緣亮 */
+    0 6px 22px rgba(0,0,0,.28);           /* 下方陰影 */
 }
     .nav-inner{
       display:flex; align-items:center; justify-content:space-between;
@@ -626,6 +631,15 @@ background-position: top left;
   </div>
 
   <style>
+    /* Header 文字在亮底下更清楚 */
+.nav .nav-links a{
+  color: rgba(255,255,255,.88);
+}
+
+.nav .nav-links a:hover{
+  background: rgba(255,255,255,.12);
+  color:#ffffff;
+}
     /* ===== 人氣精選 跑馬燈 ===== */
 .marquee{
   position: relative;
@@ -898,6 +912,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
