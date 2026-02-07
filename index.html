@@ -513,8 +513,10 @@ h1{
     <section class="hero" id="top">
       <div class="hero-grid">
         <div class="panel">
-          <h1>最懂你的五花馬<br/>帶給宜蘭朋友們最佳的用餐體驗<h1>
-          <p class="hero-locations">宜蘭宜興店　羅東純精店</p>
+          <h1 class="hero-title">
+  最懂你的五花馬<br/>
+  <span>帶給宜蘭朋友們最佳的用餐體驗</span>
+</h1>
 
           <div class="stack">
             <a class="btn primary" href="#stores">查看分店資訊</a>
@@ -994,6 +996,41 @@ h1{
 </div>
 
 <style>
+  /* ===== Hero 主標排版優化 ===== */
+.hero-title{
+  font-size: 34px;          /* 主標大 */
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  color:#ffffff;
+  text-shadow: 0 3px 10px rgba(0,0,0,.35);
+}
+
+/* 副標：降權重、拉呼吸感 */
+.hero-title span{
+  display:block;
+  margin-top: 14px;
+
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  color: rgba(255,255,255,.88);
+  text-shadow: 0 1px 3px rgba(0,0,0,.45);
+}
+
+/* 手機版再精緻一點 */
+@media (max-width:768px){
+  .hero-title{
+    font-size: 30px;
+  }
+  .hero-title span{
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+}
   /* ⭐ Hero 分店標章（方案 B：品牌招牌版） */
 .hero-locations{
   display:inline-block;
@@ -1228,6 +1265,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
