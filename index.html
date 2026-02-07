@@ -93,12 +93,7 @@
 }
 
 /* 9) 如果使用者偏好減少動態，就尊重他 */
-@media (prefers-reduced-motion: reduce){
-  .btn, .card, .food-card, .nav-links a, .chip,
-  .food-card img{
-    transition: none !important;
-    animation: none !important;
-  }
+
    :root{
   /* 老梣木主題色系 */
   --bg:#2b2622;              /* 木牆陰影底色 */
@@ -115,25 +110,26 @@
   --radius:18px;
   --max:1120px;
 }
+    @media (prefers-reduced-motion: reduce){
+  .btn, .card, .food-card, .nav-links a, .chip,
+  .food-card img{
+    transition: none !important;
+    animation: none !important;
+  }
     *{box-sizing:border-box}
     body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-}
+
   background-color:#2b1f16;
-  background-color:#2b1f16;
-background-image: url("assets/wood-tile.webp");
-background-repeat: repeat;
-background-size: 650px auto;
-background-position: top left;
+  background-image: url("assets/wood-tile.webp");
   background-repeat: repeat;
-  background-size: 520px auto;
+  background-size: 650px auto;
   background-position: top left;
 
-  color:var(--text);
+  color: var(--ink);
   line-height:1.6;
 }
-
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
     /* ===== Header 底板（方案 C：明亮門面感）===== */
@@ -264,11 +260,17 @@ background-position: top left;
   box-shadow: 0 10px 26px rgba(0,0,0,.16);
   padding: 16px;
 }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .muted{color:var(--muted)}
-    .hr{height:1px; background: rgba(34,48,65,.85); margin: 14px 0;}
-    .kvs{display:grid; grid-template-columns: 90px 1fr; gap:10px; font-size:14px}
-    .kvs div{padding: 4px 0}
+ .card{
+  background: rgba(239, 224, 200, .22);
+  border: 1px solid rgba(120, 90, 55, .18);
+  border-radius: 20px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+  padding: 16px;
+}
+      .hero .card{
+  background: rgba(90, 68, 45, .12);
+  border: 1px solid rgba(120, 90, 55, .18);
+}
     .map{
       width:100%;
       height: 280px;
@@ -407,13 +409,6 @@ background-position: top left;
   filter:brightness(1.08);
 }
     /* ✅ 強制把背景救回來（先讓畫面正常） */
-body{
-  background-color:#2b1f16 !important;
-  background-image: url("assets/wood-tile.webp") !important;
-  background-repeat: repeat !important;
-  background-size: 650px auto !important;
-  background-position: top left !important;
-}
 h1{
   color:#ffffff;
   text-shadow:
@@ -455,13 +450,8 @@ h1{
 <body>
   <header class="nav">
     <div class="wrap nav-inner">
-      <div class="brand">
-
-  <div class="brand">
-  <!-- LOGO -->
+     <div class="brand">
   <img class="brand-logo" src="assets/logo.webp" alt="五花馬水餃館 LOGO">
-
-  <!-- 品牌文字 -->
   <div class="brand-text">
     <div class="brand-title">五花馬水餃館</div>
     <div class="brand-sub">宜蘭宜興店｜羅東純精店</div>
@@ -986,14 +976,20 @@ function prev(){
   .brand-title{ font-size:16px; }
   .brand-sub{ font-size:11px; }
 }
-  .rightPanelTitle,
-.section h2,
-.card h3{
-  color: rgba(255,255,255,.92);
+  /* ===== 文字：亮底用深字，只有主標白 ===== */
+body{ color: var(--ink); }
+.muted{ color: var(--ink2); }
+.sub{ color: var(--ink2); }
+
+h1{
+  color:#fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
 }
 
-.muted{
-  color: rgba(255,255,255,.72);
+.section h2,
+.card h3,
+.rightPanelTitle{
+  color: var(--ink);
 }
 </style>
 
@@ -1054,6 +1050,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
