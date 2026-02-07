@@ -263,13 +263,6 @@ body{
   box-shadow: 0 10px 26px rgba(0,0,0,.16);
   padding: 16px;
 }
- .card{
-  background: rgba(239, 224, 200, .22);
-  border: 1px solid rgba(120, 90, 55, .18);
-  border-radius: 20px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.12);
-  padding: 16px;
-}
       .hero .card{
   background: rgba(90, 68, 45, .12);
   border: 1px solid rgba(120, 90, 55, .18);
@@ -877,8 +870,7 @@ h1{
     function showAt(i){
       if(!gallery || gallery.length === 0) return;
       index = (i + gallery.length) % gallery.length;
-      openLightbox(gallery[index], lbImg.alt);
-    }
+      openLightbox(gallery[index], (foodButtons[index]?.querySelector('img')?.alt) || '');
 
     function next(){
       if(gallery && gallery.length > 1) showAt(index + 1);
@@ -1067,6 +1059,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
