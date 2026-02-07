@@ -785,25 +785,29 @@ h1{
 .marquee:hover .marquee-track{
   animation-play-state: paused;
 }
-    /* ✅ 避免跑馬燈造成 body 被撐寬 */
+/* ✅ 人氣精選 跑馬燈（手機穩定版） */
 .marquee{
-  max-width: 100%;
   overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
+
 .marquee-track{
   display: inline-block;
+  white-space: nowrap;
+  padding-left: 0;                 /* ✅ 不要用 100% 推走 */
+  animation: marquee 14s linear infinite;
   will-change: transform;
 }
 
 @keyframes marquee{
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  from { transform: translateX(100%); }  /* ✅ 從右側螢幕外進來 */
+  to   { transform: translateX(-100%); } /* ✅ 跑到左側螢幕外 */
 }
-    .marquee-track{
-  display:inline-block;
-  padding-left: 100%;
-  animation: marquee 18s linear infinite;
-  color: rgba(255,255,255,.82);
+
+/* 手機可選：慢一點 */
+@media (max-width: 768px){
+  .marquee-track{ animation-duration: 18s; }
 }
     .lightbox{ position: fixed; inset:0; display:none; z-index:9999; }
     .lightbox[aria-hidden="false"]{ display:block; }
@@ -1091,6 +1095,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
