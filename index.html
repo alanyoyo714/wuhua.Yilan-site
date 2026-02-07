@@ -12,6 +12,41 @@
   <meta property="og:type" content="website" />
 
   <style>
+    /* ✅ Hero 右側：三個區塊放大 + 填滿 */
+.hero-grid > .panel:last-child{
+  display:flex;
+  flex-direction:column;
+}
+
+.hero-grid > .panel:last-child .grid3{
+  display:flex !important;
+  flex-direction:column;
+  gap:14px !important;
+  flex: 1;
+  min-height: 420px; /* 你想更大可調 480 / 520 */
+}
+
+/* 三張卡平均撐高、字更大、padding 更厚 */
+.hero-grid > .panel:last-child .card{
+  flex: 1;
+  padding: 18px 18px;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.14);
+}
+
+/* 標題更有份量 */
+.hero-grid > .panel:last-child .card h3{
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+/* 內容字體稍微放大 */
+.hero-grid > .panel:last-child .muted.small,
+.hero-grid > .panel:last-child .marquee-track{
+  font-size: 14px;
+  line-height: 1.7;
+}
     /* ✅ 手機防止版面水平溢出（避免變超寬） */
 html, body{
   width: 100%;
@@ -1193,6 +1228,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
