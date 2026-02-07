@@ -12,6 +12,16 @@
   <meta property="og:type" content="website" />
 
   <style>
+    /* ✅ 手機防止版面水平溢出（避免變超寬） */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 圖片 / iframe 不要超出容器 */
+img, iframe{
+  max-width: 100%;
+}
     /* =========================
    互動一致化（商業感升級）
    貼在主 <style> 最下面
@@ -775,6 +785,15 @@ h1{
 .marquee:hover .marquee-track{
   animation-play-state: paused;
 }
+    /* ✅ 避免跑馬燈造成 body 被撐寬 */
+.marquee{
+  max-width: 100%;
+  overflow: hidden;
+}
+.marquee-track{
+  display: inline-block;
+  will-change: transform;
+}
 
 @keyframes marquee{
   0%   { transform: translateX(0); }
@@ -1072,6 +1091,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
