@@ -309,6 +309,16 @@ background-position: top left;
           <div class="stack">
             <a class="btn primary" href="#stores">查看分店資訊</a>
             <a class="btn" href="#delivery">立即外送下單</a>
+            /* 首屏「立即外送下單」改成綠色 */
+.btn-delivery{
+  background:#06C167;   /* 綠色（你已用在 UberEats） */
+  color:#ffffff;
+  border:none;
+}
+
+.btn-delivery:hover{
+  filter:brightness(1.08);
+}
           </div>
 
           <div class="chips" aria-label="特色">
@@ -806,6 +816,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
