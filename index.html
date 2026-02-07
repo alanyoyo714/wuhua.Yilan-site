@@ -279,6 +279,27 @@ background-position: top left;
   color:#ffffff;
   border:none;
 }
+/* ===== 品牌 LOGO ===== */
+.brand-logo{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  margin-right:10px;
+
+  background: rgba(255,255,255,.08);
+  padding:6px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* 手機版 */
+@media (max-width:768px){
+  .brand-logo{
+    width:34px;
+    height:34px;
+    padding:5px;
+  }
+}
 
 .btn-delivery:hover{
   filter:brightness(1.08);
@@ -293,6 +314,11 @@ background-position: top left;
       <div class="brand">
   <span class="dot" aria-hidden="true"></span>
 
+  <div class="brand">
+  <!-- LOGO -->
+  <img class="brand-logo" src="assets/logo.webp" alt="五花馬水餃館 LOGO">
+
+  <!-- 品牌文字 -->
   <div class="brand-text">
     <div class="brand-title">五花馬水餃館</div>
     <div class="brand-sub">宜蘭宜興店｜羅東純精店</div>
@@ -816,6 +842,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
