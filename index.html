@@ -110,14 +110,17 @@
   --radius:18px;
   --max:1120px;
 }
-    @media (prefers-reduced-motion: reduce){
+   @media (prefers-reduced-motion: reduce){
   .btn, .card, .food-card, .nav-links a, .chip,
   .food-card img{
     transition: none !important;
     animation: none !important;
   }
-    *{box-sizing:border-box}
-    body{
+}
+
+/* ✅ 回到正常全域 */
+*{box-sizing:border-box}
+body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 
@@ -491,18 +494,20 @@ h1{
         <div class="panel">
           <p class="rightPanelTitle">今日想吃什麼？</p>
           <div class="grid3" style="grid-template-columns:1fr; gap:10px">
-            <div class="card">
-              <h3>人氣精選</h3>
-            <div class="marquee">
-  <div class="marquee-track">
-    虱目魚水餃 ／ 蔥油餅 ／ 韭菜盒子 ／ 揚州炒飯 ／
-    蝦仁水餃 ／ 紅燒牛肉麵 ／ 牛肉捲餅 ／ 綜合燒賣
+           <div class="card">
+  <h3>人氣精選</h3>
+  <div class="marquee">
+    <div class="marquee-track">
+      虱目魚水餃 ／ 蔥油餅 ／ 韭菜盒子 ／ 揚州炒飯 ／
+      蝦仁水餃 ／ 紅燒牛肉麵 ／ 牛肉捲餅 ／ 綜合燒賣
+    </div>
   </div>
 </div>
-            <div class="card">
-              <h3>用餐體驗</h3>
-              <div class="muted small">明亮舒適、動線寬敞，適合家庭聚餐與朋友小聚。</div>
-            </div>
+
+<div class="card">
+  <h3>用餐體驗</h3>
+  <div class="muted small">明亮舒適、動線寬敞，適合家庭聚餐與朋友小聚。</div>
+</div>
             <div class="card">
               <h3>快速導覽</h3>
               <div class="muted small">下面分店區可直接點「撥打電話」與「開啟地圖」。</div>
@@ -743,13 +748,6 @@ h1{
   </div>
 
   <style>
-    #about .card{
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.20),
-    rgba(255,255,255,.14)
-  );
-}
     h1{
   color:#fff;
   text-shadow: 0 2px 12px rgba(0,0,0,.55);
@@ -788,6 +786,12 @@ h1{
 @keyframes marquee{
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
+}
+    .marquee-track{
+  display:inline-block;
+  padding-left: 100%;
+  animation: marquee 18s linear infinite;
+  color: rgba(255,255,255,.82);
 }
     .lightbox{ position: fixed; inset:0; display:none; z-index:9999; }
     .lightbox[aria-hidden="false"]{ display:block; }
@@ -869,13 +873,6 @@ function prev(){
   if(gallery && gallery.length > 1) showAt(index - 1);
 }
 
-  if(menuLink){
-    menuLink.addEventListener('click', (e)=>{
-      e.preventDefault();
-      gallery = MENU_IMAGES;
-      showAt(0);
-    });
-  }
 
   document.querySelectorAll('.food-card').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -1050,6 +1047,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
