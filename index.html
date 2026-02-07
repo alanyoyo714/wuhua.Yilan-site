@@ -367,8 +367,12 @@ background-position: top left;
           <div class="grid3" style="grid-template-columns:1fr; gap:10px">
             <div class="card">
               <h3>人氣精選</h3>
-              <div class="muted small">高麗菜水餃／蔥油餅／酸辣湯／炒飯</div>
-            </div>
+            <div class="marquee">
+  <div class="marquee-track">
+    高麗菜水餃 ／ 蔥油餅 ／ 酸辣湯 ／ 炒飯 ／
+    高麗菜水餃 ／ 蔥油餅 ／ 酸辣湯 ／ 炒飯
+  </div>
+</div>
             <div class="card">
               <h3>用餐體驗</h3>
               <div class="muted small">明亮舒適、動線寬敞，適合家庭聚餐與朋友小聚。</div>
@@ -449,7 +453,7 @@ background-position: top left;
   <img src="assets/milkfish-dumpling.webp" alt="虱目魚水餃">
   <div class="food-meta">
     <h3>虱目魚水餃</h3>
-    <div class="muted small">鮮甜扎實・口感特別</div>
+    <div class="muted small">獨特口味，鮮甜美味</div>
   </div>
 </button>
 
@@ -613,6 +617,32 @@ background-position: top left;
   </div>
 
   <style>
+    /* ===== 人氣精選 跑馬燈 ===== */
+.marquee{
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width:100%;
+  margin-top:8px;
+}
+
+.marquee-track{
+  display:inline-block;
+  padding-left:100%;
+  animation: marquee 18s linear infinite;
+  font-size:14px;
+  color:rgba(255,255,255,.75);
+}
+
+/* 滑鼠移上去暫停 */
+.marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
+
+@keyframes marquee{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
     .lightbox{ position: fixed; inset:0; display:none; z-index:9999; }
     .lightbox[aria-hidden="false"]{ display:block; }
     .lightbox-backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.65); backdrop-filter: blur(6px); }
@@ -859,6 +889,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
