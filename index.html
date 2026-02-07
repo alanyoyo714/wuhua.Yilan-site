@@ -479,7 +479,7 @@ h1{
       <div class="hero-grid">
         <div class="panel">
           <h1>舒適寬敞的麵食館<br/>帶給宜蘭在地鄉親們最佳的體驗</h1>
-          <p class="sub">｜宜蘭宜興店・羅東純精店｜</p>
+          <p class="hero-locations">宜蘭宜興店　羅東純精店</p>
 
           <div class="stack">
             <a class="btn primary" href="#stores">查看分店資訊</a>
@@ -959,6 +959,31 @@ h1{
 </div>
 
 <style>
+  /* ⭐ Hero 分店標章（方案 B：品牌招牌版） */
+.hero-locations{
+  display:inline-block;
+
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+
+  color:#3a2a10;   /* 深棕字，對比好 */
+
+  padding: 10px 22px;
+  margin-top: 10px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(247,210,124,.95),
+    rgba(217,164,65,.95)
+  );
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.4);
+}
   /* ✅ Hero 分店資訊質感升級（取代 |） */
 .hero .sub{
   font-size: 14px;
@@ -1168,6 +1193,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
