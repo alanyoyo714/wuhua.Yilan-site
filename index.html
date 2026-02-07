@@ -279,31 +279,32 @@ background-position: top left;
   color:#ffffff;
   border:none;
 }
-/* ===== 品牌 LOGO（加大版） ===== */
+/* ===== 品牌 LOGO（圓形＋金色外框）===== */
 .brand-logo{
-  width:56px;              /* ⬅ 放大 */
+  width:56px;
   height:56px;
   object-fit:contain;
   margin-right:14px;
 
-  background: rgba(255,255,255,.10);
+  background: rgba(0,0,0,.25);      /* 深色襯底，讓白色 LOGO 更清楚 */
   padding:8px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;                /* ⭕ 圓形 */
+  border:2px solid #d6b36a;         /* ✨ 金色外框 */
 
-  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.35),
+    inset 0 0 0 1px rgba(255,255,255,.08);
 }
 
-/* 手機版稍微小一點 */
+/* 手機版 */
 @media (max-width:768px){
   .brand-logo{
     width:44px;
     height:44px;
     padding:6px;
-    border-radius:12px;
+    border-width:1.5px;
   }
 }
-
 
 .btn-delivery:hover{
   filter:brightness(1.08);
@@ -845,6 +846,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
