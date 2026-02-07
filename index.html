@@ -512,7 +512,7 @@ h1{
   <main class="wrap">
     <section class="hero" id="top">
       <div class="hero-grid">
-        <div class="panel">
+        <div class="panel hero-main">
           <h1 class="hero-title">
   最懂你的五花馬<br/>
   <span>帶給宜蘭朋友們最佳的用餐體驗</span>
@@ -996,6 +996,60 @@ h1{
 </div>
 
 <style>
+  /* 兩顆主按鈕：手機改成上下滿版更穩 */
+@media (max-width:768px){
+  .hero-main .stack{
+    flex-direction: column;
+    gap:12px;
+    margin-top: 14px;
+  }
+  .hero-main .stack .btn{
+    width: 100%;
+    justify-content:center;
+    font-size: 18px;
+    padding: 16px 18px;
+  }
+}
+
+/* 特色 chips：改成更整齊的排列 */
+.hero-main .chips{
+  margin-top: 16px;
+  gap: 10px;
+}
+
+@media (max-width:768px){
+  .hero-main .chips{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ 2x2 整齊 */
+    gap: 10px;
+  }
+  .hero-main .chip{
+    width:100%;
+    text-align:center;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.10);
+    color: rgba(255,255,255,.92);
+  }
+}
+  /* ===== Hero 主面板排版（手機變好看關鍵） ===== */
+.hero-main{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;      /* ✅ 讓內容垂直置中，不要擠上面 */
+  min-height: 520px;           /* ✅ 避免下面空一大片 */
+  padding: 28px 22px;
+}
+
+/* 手機版：更集中、不要留太多空白 */
+@media (max-width:768px){
+  .hero-main{
+    min-height: 560px;         /* 依你面板高度可微調 520~620 */
+    padding: 26px 18px;
+  }
+}
   /* ===== Hero 主標排版優化 ===== */
 .hero-title{
   font-size: 34px;          /* 主標大 */
@@ -1265,6 +1319,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
