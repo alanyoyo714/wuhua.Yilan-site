@@ -626,14 +626,13 @@ background-position: top left;
       border-radius: 18px;
       overflow:hidden;
     }
-    .lightbox-panel img{
-      width:100%;
-      height:auto;
-      max-height: 84vh;
-      object-fit: contain;
-      display:block;
-      background:#0b0f14;
-    }
+  /* Lightbox 圖片填滿，不留黑邊 */
+.lightbox-panel img{
+  width:100%;
+  height:84vh;          /* 讓它有固定高度可裁切 */
+  object-fit: cover;    /* ✅ 填滿，黑邊消失 */
+  background: transparent;
+}
     .lightbox-close{
       position:absolute;
       top:10px; right:10px;
@@ -860,6 +859,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
