@@ -839,6 +839,11 @@ h1{
   .lightbox-nav.prev{ left:12px; }
   .lightbox-nav.next{ right:12px; }
 }
+    /* 菜單長圖要完整顯示，不要裁切 */
+#menuBox .lightbox-panel img{
+  object-fit: contain;
+  background: rgba(0,0,0,.2);
+}
   </style>
   <script>
   // 年份
@@ -848,6 +853,9 @@ h1{
   (function(){
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
+
+    const foodButtons = Array.from(document.querySelectorAll('.food-card'));
+    const foodImages  = foodButtons.map(btn => btn.dataset.full);
 
     let gallery = null;
     let index = 0;
@@ -862,6 +870,7 @@ h1{
     function closeLightbox(){
       lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
+      lbImg.alt = '';
       document.body.style.overflow = '';
       gallery = null;
       index = 0;
@@ -870,7 +879,11 @@ h1{
     function showAt(i){
       if(!gallery || gallery.length === 0) return;
       index = (i + gallery.length) % gallery.length;
-      openLightbox(gallery[index], (foodButtons[index]?.querySelector('img')?.alt) || '');
+      openLightbox(
+        gallery[index],
+        foodButtons[index]?.querySelector('img')?.alt || ''
+      );
+    }
 
     function next(){
       if(gallery && gallery.length > 1) showAt(index + 1);
@@ -880,15 +893,15 @@ h1{
       if(gallery && gallery.length > 1) showAt(index - 1);
     }
 
-    // ✅ 把餐點卡片收成一個 gallery（這樣左右鍵可切餐點）
-    const foodButtons = Array.from(document.querySelectorAll('.food-card'));
-    const foodImages = foodButtons.map(btn => btn.dataset.full);
-
+    // 點餐點開啟（並建立 gallery）
     foodButtons.forEach((btn, i)=>{
       btn.addEventListener('click', ()=>{
         gallery = foodImages;
         index = i;
-        openLightbox(gallery[index], btn.querySelector('img')?.alt || '');
+        openLightbox(
+          gallery[index],
+          btn.querySelector('img')?.alt || ''
+        );
       });
     });
 
@@ -905,8 +918,8 @@ h1{
       if(e.key === 'ArrowLeft') prev();
     });
   })();
-
 </script>
+
   <!-- 菜單 Lightbox（兩張，可左右切換） -->
 <div class="lightbox" id="menuBox" aria-hidden="true">
   <div class="lightbox-backdrop" data-close></div>
@@ -1059,6 +1072,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
