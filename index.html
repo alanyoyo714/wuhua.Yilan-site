@@ -12,6 +12,93 @@
   <meta property="og:type" content="website" />
 
   <style>
+    /* =========================
+   互動一致化（商業感升級）
+   貼在主 <style> 最下面
+========================= */
+
+/* 1) 全站互動速度與手感統一 */
+:root{
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --dur: 220ms;
+  --lift: 6px;
+  --ring: rgba(214,179,106,.25);
+}
+
+/* 2) 統一可互動元素的過場 */
+.btn, .card, .food-card, .nav-links a, .chip{
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    filter var(--dur) var(--ease);
+}
+
+/* 3) Focus（鍵盤可用性 + 商業網站質感） */
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.food-card:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* 4) 按鈕：一致的「抬起」與按下回饋 */
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.35);
+}
+.btn:active{
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0,0,0,.28);
+}
+
+/* 5) 卡片：hover 微抬起（不要跟按鈕一樣強） */
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.26);
+  border-color: rgba(255,255,255,.14);
+}
+
+/* 6) 餐點卡：更有「商業展示」感 */
+.food-card{
+  position: relative;
+  transform: translateY(0);
+}
+.food-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.35);
+  border-color: rgba(214,179,106,.35);
+}
+
+/* 餐點圖片 hover 微放大（很像商業站的商品卡） */
+.food-card img{
+  transition: transform 380ms var(--ease);
+}
+.food-card:hover img{
+  transform: scale(1.03);
+}
+
+/* 7) 導覽列連結：一致的 hover（更像「品牌官網」） */
+.nav-links a:hover{
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+}
+
+/* 8) 小 chip：輕微浮起 */
+.chip:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.08);
+  border-color: rgba(214,179,106,.25);
+}
+
+/* 9) 如果使用者偏好減少動態，就尊重他 */
+@media (prefers-reduced-motion: reduce){
+  .btn, .card, .food-card, .nav-links a, .chip,
+  .food-card img{
+    transition: none !important;
+    animation: none !important;
+  }
    :root{
   /* 老梣木主題色系 */
   --bg:#2b2622;              /* 木牆陰影底色 */
@@ -265,15 +352,6 @@ background-position: top left;
   filter:brightness(1.1);
 }
 
-/* 按鈕立體感 */
-.btn{
-  box-shadow: 0 6px 14px rgba(0,0,0,.35);
-}
-
-.btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.45);
-}
 
 /* 手機版外送按鈕滿版 */
 @media (max-width:768px){
@@ -912,6 +990,7 @@ function prev(){
 </script>
 </body>
 </html>
+
 
 
 
