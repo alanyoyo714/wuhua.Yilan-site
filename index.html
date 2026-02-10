@@ -1005,6 +1005,30 @@ h1{
 </div>
 
 <style>
+  /* ===== 修正 Hero 手機版過寬（只影響這一塊） ===== */
+@media (max-width: 768px){
+
+  /* Hero 本身不准超出螢幕 */
+  .hero,
+  .hero *{
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Hero grid 改為單欄，完全貼齊 */
+  .hero-grid{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Panel 不准有最小寬度 */
+  .hero .panel{
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+}
   /* 兩顆主按鈕：手機改成上下滿版更穩 */
 @media (max-width:768px){
   .hero-main .stack{
@@ -1328,6 +1352,7 @@ h1{
 </script>
 </body>
 </html>
+
 
 
 
